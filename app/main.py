@@ -9,14 +9,21 @@ from fastapi import FastAPI, HTTPException
 
 from app.core.config import settings
 from app.database.connection import check_connection
+from app.routes import circuits, drivers, races, results, teams
 
-# Instância principal da aplicação. Título, versão e descrição aparecem
-# na documentação Swagger (/docs).
 app = FastAPI(
     title=settings.APP_NAME,
     version=settings.APP_VERSION,
     description=settings.APP_DESCRIPTION,
 )
+
+# Registra as rotas de cada entidade na aplicação.
+app.include_router(drivers.router)
+app.include_router(teams.router)
+app.include_router(circuits.router)
+app.include_router(races.router)
+app.include_router(races.seasons_router)
+app.include_router(results.router)
 
 
 @app.get("/", tags=["Geral"])
@@ -35,8 +42,6 @@ def health() -> dict:
     try:
         check_connection()
     except Exception:
-        # Não devolvemos o texto do erro ao cliente: ele poderia expor
-        # detalhes internos (host, usuário) da conexão.
         raise HTTPException(
             status_code=503,
             detail="Banco de dados indisponível.",
