@@ -1,0 +1,6 @@
+fastapi[standard]
+sqlalchemy
+requests
+python-dotenv
+pytest
+httpx

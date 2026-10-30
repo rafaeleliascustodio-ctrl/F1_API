@@ -1,0 +1,16 @@
+# Credenciais (NUNCA versionar)
+.env
+
+# Ambiente virtual
+.venv/
+venv/
+
+# Cache e arquivos gerados pelo Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Editor e sistema operacional
+.vscode/
+.DS_Store
+Thumbs.db
