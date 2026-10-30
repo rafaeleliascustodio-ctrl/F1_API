@@ -9,7 +9,7 @@ from fastapi import FastAPI, HTTPException
 
 from app.core.config import settings
 from app.database.connection import check_connection
-from app.routes import circuits, drivers, races, results, teams
+from app.routes import circuits, drivers, openf1, races, results, teams
 
 app = FastAPI(
     title=settings.APP_NAME,
@@ -24,7 +24,7 @@ app.include_router(circuits.router)
 app.include_router(races.router)
 app.include_router(races.seasons_router)
 app.include_router(results.router)
-
+app.include_router(openf1.router)
 
 @app.get("/", tags=["Geral"])
 def root() -> dict:

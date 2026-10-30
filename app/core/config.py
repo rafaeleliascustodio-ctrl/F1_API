@@ -26,6 +26,9 @@ class Settings:
     APP_VERSION: str = "0.1.0"
     APP_DESCRIPTION: str = "API própria de Fórmula 1, inspirada no projeto OpenF1."
 
+    # Integração com a OpenF1 (não precisa de chave para dados históricos).
+    OPENF1_BASE_URL: str = "https://api.openf1.org/v1"
+    OPENF1_TIMEOUT: int = 15  # segundos de espera antes de desistir
     def __init__(self) -> None:
         self.DATABASE_URL: str = self._load_database_url()
 
