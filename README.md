@@ -40,7 +40,7 @@ Os comandos abaixo são para Windows (PowerShell). Em Linux ou macOS, troque a a
 1. Clone o repositório e entre na pasta:
 
    ```powershell
-   git clone <URL-DO-REPOSITORIO>
+   git clone https://github.com/rafaeleliascustodio-ctrl/F1_API.git
    cd F1_API
    ```
 
