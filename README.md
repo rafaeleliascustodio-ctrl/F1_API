@@ -138,12 +138,15 @@ curl.exe -X POST http://127.0.0.1:8000/drivers `
   -H "Content-Type: application/json" `
   -d '{\"first_name\": \"Lewis\", \"last_name\": \"Hamilton\", \"acronym\": \"HAM\", \"number\": 44, \"country_code\": \"GBR\"}'
 ```
+
 > **Atenção:** a sigla (`acronym`) é única. Se já existir um piloto com a mesma sigla, a API responde **409**. Para repetir o exemplo, use outra sigla ou apague o piloto antes (`DELETE /drivers/{id}`).
+
 Listar com paginação:
 
 ```powershell
 curl.exe "http://127.0.0.1:8000/drivers?skip=0&limit=10"
 ```
+
 Atualizar só um campo (troque `1` pelo `id` do piloto, retornado ao criá-lo):
 
 ```powershell
